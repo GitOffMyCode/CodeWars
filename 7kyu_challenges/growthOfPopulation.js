@@ -9,10 +9,9 @@
 // p = population target (1200)
 
 function nbYear(p0, percent, aug, p) {
-    let popCounter = p0;
     let years = 0;
-    for (let i = 0; popCounter < p; i++) {
-        popCounter = popCounter + (popCounter * percent / 100) + aug;
+    for (let i = 0; p0 < p; i++) {
+        p0 = p0 + (p0 * percent / 100) + aug;
         years++
     }
     return years;
