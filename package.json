@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./test/consecutiveLetters.test.js"
+    "test": "jest ./7kyu_tests/validatePin.test.js"
   },
   "author": "",
   "license": "ISC",

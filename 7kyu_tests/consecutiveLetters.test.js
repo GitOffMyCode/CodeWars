@@ -1,4 +1,4 @@
-const consecutiveLetters = require("../challenges/consecutiveLetters");
+const consecutiveLetters = require("../7kyu_challenges/consecutiveLetters");
 
 describe("consecutiveLetters", () => {
 
