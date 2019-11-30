@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./7kyu_tests/growthOfPopulation.test.js"
+    "test": "jest ./7kyu_tests/odderThanTheRest.test.js"
   },
   "author": "",
   "license": "ISC",

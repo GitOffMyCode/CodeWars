@@ -3,7 +3,7 @@ const oddOne = require("../7kyu_challenges/odderThanTheRest");
 describe("oddOne", () => {
 
     test("returns the index at which the sole odd number is located", () => {
-        expect(oddOne([2])).toBe(0); 
+        expect(oddOne([1])).toBe(0); 
         expect(oddOne([2,4,6,7,10])).toBe(3);    
         expect(oddOne([2,16,98,10,13,78])).toBe(4);
         expect(oddOne([4,-8,98,-12,-7,90,100])).toBe(4);
