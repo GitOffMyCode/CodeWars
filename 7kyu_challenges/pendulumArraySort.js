@@ -5,7 +5,14 @@
 // The Next higher number goes to the left of minimum number and So on , in a to-and-fro manner similar to that of a Pendulum.
 
 function pendulum(values) {
-    return [] // Do your magic!
+    let result = [];
+    values.sort((a,b) => a - b);
+    result.push(values.shift());
+    while (values.length > 0) {
+        result.push(values.shift());
+        result.unshift(values.shift());
+    }
+    return result;
 }
 
 module.exports = pendulum;
