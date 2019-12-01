@@ -5,12 +5,11 @@
 // The Next higher number goes to the left of minimum number and So on , in a to-and-fro manner similar to that of a Pendulum.
 
 function pendulum(values) {
-    let result = [];
-    values.sort((a,b) => a - b);
-    result.push(values.shift());
+    values.sort((a, b) => a - b);
+    let result = [values.shift()];
     while (values.length > 0) {
-        result.push(values.shift());
-        result.unshift(values.shift());
+        result.push(...values.splice(0, 1))
+        result.unshift(...values.splice(0, 1))
     }
     return result;
 }
