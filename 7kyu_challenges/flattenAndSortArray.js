@@ -4,7 +4,9 @@
 "use strict";
 
 function flattenAndSort(array) {
-  return array;
+    let newArray = [];
+    array.map(subarr => newArray.push(...subarr));
+    return newArray.sort((a,b) => a - b);
 }
 
 module.exports = flattenAndSort;
