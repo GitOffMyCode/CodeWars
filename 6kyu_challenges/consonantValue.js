@@ -4,18 +4,14 @@
 // For example, for the word "zodiacs", let's cross out the vowels. We get: "z, d, cs"
 
 function solve(s) {
-    const consonants = s.match(/[^aeiou]+/gi);   // array = ["z", "d", "cs"]
+    const consonants = s.match(/[^aeiou]+/gi);
     let values = [];
     consonants.map(el => {
-        let nums = [];
-        for (let i = 0; i < el.length; i++) {
-            nums.push((el[i].charCodeAt(0)-96));
-        }
-        values.push(nums);
+        let subValues = [];
+        for (let i = 0; i < el.length; i++) subValues.push((el[i].charCodeAt(0)-96));
+        values.push(subValues.reduce((a,b) => a + b))
     });
-    return values;
+    return Math.max(...values);
 }
-
-console.log(solve("zodiacs"))
 
 module.exports = solve;
