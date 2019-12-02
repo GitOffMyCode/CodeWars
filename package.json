@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./7kyu_tests"
+    "test": "jest ./6kyu_tests/consonantValue.test.js"
   },
   "author": "",
   "license": "ISC",
