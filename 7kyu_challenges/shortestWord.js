@@ -7,7 +7,4 @@ function shortestWord(s) {
     return s[0].length
 }
 
-shortestWord("do bees have knees")
-shortestWord("ashdfiawuhegbjbgkaehgk a")
-
 module.exports = shortestWord;
