@@ -9,4 +9,9 @@ describe("countDeafRats", () => {
         expect(countDeafRats("~O ~O ~O ~O P ~O ~O O~")).toBe(2);
     })
 
+    test("works when no spaces between rats", () => {
+        expect(countDeafRats("~O~O~O~OP~O~OO~")).toBe(2);
+        expect(countDeafRats("~O~O~O~OO~O~O~P~O~O~OO~O~O~O~")).toBe(6);
+    })
+
 })
