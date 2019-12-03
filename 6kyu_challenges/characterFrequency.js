@@ -11,23 +11,16 @@ function characterFrequency(text) {
         for (const l of text) if (letter === l) counter++
         result.push([letter, counter])                      
     })
-    // sort by VALUE OF MOST FREQUENT LETTER, and if letters have same value SORT ALPHABETICALLY
+    // sorts by VALUE OF MOST FREQUENT LETTER, and if letters have same value SORT ALPHABETICALLY
     result.sort((v1,v2) => {
         if (v1[1] > v2[1]) return -1
         if (v1[1] < v2[1]) return 1
-        if (v1[1] === v2[1]) {
+        else {
             if (v1[0] > v2[0]) return 1
             if (v1[0] < v2[0]) return -1
-            if (v1[1] === v2[1]) return 0
         }
     })
-
     return result;
 }
-
-
-
-
-console.log(characterFrequency("aaAabb dddDD hhcc"))
 
 module.exports = characterFrequency;
