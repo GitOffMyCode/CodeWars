@@ -10,11 +10,20 @@ const countDeafRats = town => {
     const splitRats = town.split("P");
     let ratsLeft = splitRats[0];
     let ratsRight = splitRats[1];
-    let deafRatsLeft = ratsLeft.match(/~O/g);
-    let deafRatsRight = ratsRight.match(/O~/g);
-    return deafRatsLeft.length + deafRatsRight.length;
+    let deafRatsLeft = 0;
+    let deafRatsRight = 0;
+    if (ratsLeft.length !== 0) {
+        deafRatsLeft = ratsLeft.match(/O~/g);
+        deafRatsLeft ? deafRatsLeft = deafRatsLeft.length : deafRatsLeft = 0;
+    }
+    if (ratsRight.length !== 0) {
+        deafRatsRight = ratsRight.match(/~O/g);
+        deafRatsRight ? deafRatsRight = deafRatsRight.length : deafRatsRight = 0;
+    }
+    return deafRatsLeft + deafRatsRight
 }
 
-console.log( countDeafRats(" ~O ~O ~O ~O O~ O~ O~ O~ P ~O ~O ~O ~O O~ O~ O~ O~ ") )  //-> 8
+console.log( countDeafRats("~O ~O ~O ~O P ~O ~O O~") )  //-> 2
+console.log( countDeafRats("~O~O~O~OP~O~OO~") )  //-> 2
 
 module.exports = countDeafRats;
