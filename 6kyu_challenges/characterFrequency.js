@@ -3,9 +3,18 @@
 // The function should return a list of arrays sorted by the most frequent letters first. Letters with the same frequency are ordered alphabetically. For example: letterFrequency('aaAabb dddDD hhcc') -> [['d',5], ['a',4], ['b',2], ['c',2], ['h',2]]
 
 function characterFrequency(text) {
-    return text;
+    text = text.toLowerCase().match(/[a-z]/gi)
+    let letters = [...new Set(text)];
+    let result = [];
+    letters.forEach(letter => {
+        let counter = 0;
+        for (const l of text) if (letter === l) counter++
+        result.push([letter, counter])
+    })
+    return result;
 }
 
-console.log(characterFrequency("hello"))
+
+console.log(characterFrequency("aaAabb dddDD hhcc"))
 
 module.exports = characterFrequency;
