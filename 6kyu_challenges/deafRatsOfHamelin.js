@@ -7,23 +7,21 @@
 // ex3 ~O~O~O~OP~O~OO~ has 2 deaf rats
 
 const countDeafRats = town => {
+    town = town.replace(/(~O)|(O~)/g, "$1|$2")
     const splitRats = town.split("P");
     let ratsLeft = splitRats[0];
     let ratsRight = splitRats[1];
     let deafRatsLeft = 0;
     let deafRatsRight = 0;
     if (ratsLeft.length !== 0) {
-        deafRatsLeft = ratsLeft.match(/O~/g);
+        deafRatsLeft = ratsLeft.match(/(O~)/g);  
         deafRatsLeft ? deafRatsLeft = deafRatsLeft.length : deafRatsLeft = 0;
     }
     if (ratsRight.length !== 0) {
-        deafRatsRight = ratsRight.match(/~O/g);
+        deafRatsRight = ratsRight.match(/(~O)/g); 
         deafRatsRight ? deafRatsRight = deafRatsRight.length : deafRatsRight = 0;
     }
-    return deafRatsLeft + deafRatsRight
+    return deafRatsLeft + deafRatsRight;
 }
-
-console.log( countDeafRats("~O ~O ~O ~O P ~O ~O O~") )  //-> 2
-console.log( countDeafRats("~O~O~O~OP~O~OO~") )  //-> 2
 
 module.exports = countDeafRats;
