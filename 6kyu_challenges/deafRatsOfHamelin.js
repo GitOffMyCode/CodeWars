@@ -6,9 +6,15 @@
 // ex2 P O~ O~ ~O O~ has 1 deaf rat
 // ex3 ~O~O~O~OP~O~OO~ has 2 deaf rats
 
-var countDeafRats = function(town) {
-    // Your code here
-    return 0;
-  }
+const countDeafRats = town => {
+    const splitRats = town.split("P");
+    let ratsLeft = splitRats[0];
+    let ratsRight = splitRats[1];
+    let deafRatsLeft = ratsLeft.match(/~O/g);
+    let deafRatsRight = ratsRight.match(/O~/g);
+    return deafRatsLeft.length + deafRatsRight.length;
+}
+
+console.log( countDeafRats(" ~O ~O ~O ~O O~ O~ O~ O~ P ~O ~O ~O ~O O~ O~ O~ O~ ") )  //-> 8
 
 module.exports = countDeafRats;
