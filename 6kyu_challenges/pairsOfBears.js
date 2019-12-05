@@ -4,7 +4,10 @@
 // e.g: 'EvHB8KN8ik8BiyxfeyKBmiCMj' ---> 'B88B' (empty string if there are no pairs) and true if the number is more than or equal to x, false if not: (6, 'EvHB8KN8ik8BiyxfeyKBmiCMj') ---> ['B88B', false]; 
 // x will always be a positive integer, and s will never be empty
 
-function bears(x, s){
+function bears(x, s) {
+    let bears;
+    if (s !== null) bears = (s.match(/8B|B8/gi) || ['']).join('')
+    return bears.length >= x ? [bears, true] : [bears, false];
 }
 
 module.exports = bears;
