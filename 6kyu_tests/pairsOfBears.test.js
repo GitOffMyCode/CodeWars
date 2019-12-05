@@ -9,6 +9,7 @@ describe("bears", () => {
         expect(bears(0, '0')).toEqual(["", true]);
         expect(bears(1, '0')).toEqual(["", false]);
         expect(bears(1, '8B')).toEqual(["8B", true]);
+        expect(bears(5, 'mBdiBBdB8B8h8jfakBB8a8Baj')).toEqual(["B8B8B88B", false]);
     })
 
 })
