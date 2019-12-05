@@ -5,11 +5,9 @@
 const meeting = s => {
     const names = s.toUpperCase().split(";");
     let nameArray = [];
-    names.forEach(name => {
-        nameArray.push(name.replace(/(\w+):(\w+)/g, "($2, $1)"))
-    })
-    let result = ""
-    return result.concat(...nameArray.sort())
+    names.forEach(name => nameArray.push(name.replace(/(\w+):(\w+)/g, "($2, $1)")));
+    let result = "";
+    return result.concat(...nameArray.sort());
 }
 
 module.exports = meeting;
