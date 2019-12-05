@@ -5,8 +5,7 @@
 // x will always be a positive integer, and s will never be empty
 
 function bears(x, s) {
-    let bears;
-    if (s !== null) bears = (s.match(/8B|B8/gi) || ['']).join('')
+    let bears = (s.match(/8B|B8/gi) || ['']).join('')
     return bears.length >= x ? [bears, true] : [bears, false];
 }
 
