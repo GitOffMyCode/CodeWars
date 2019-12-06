@@ -10,7 +10,13 @@
 // [] = 0
 
 function partsSums(ls) {
-    // your code
+    let result = [];
+    while (ls.length > 0) {
+        result.push(ls.reduce((a,b) => a + b));
+        ls.shift();
+    }
+    result.push(0);
+    return result;
 }
 
 module.exports = partsSums;
