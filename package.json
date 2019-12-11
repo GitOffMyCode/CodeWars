@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./6kyu_tests/sumOfParts.test.js"
+    "test": "jest ./6kyu_tests/countingDuplicates.test.js"
   },
   "author": "",
   "license": "ISC",
