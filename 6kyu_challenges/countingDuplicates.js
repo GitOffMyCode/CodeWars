@@ -10,7 +10,17 @@
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
 function duplicateCount(text) {
-    //...
+    text = text.toUpperCase();
+    let singles = [...new Set(text.toUpperCase())];
+    let result = 0;
+    singles.forEach(item => {
+        let counter = 0;
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] === item) counter++
+        }
+        if (counter > 1) result++
+    })
+    return result;
 }
 
 module.exports = duplicateCount;
