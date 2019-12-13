@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./6kyu_tests/countingDuplicates.test.js"
+    "test": "jest ./6kyu_tests/vasyaClerk.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.7.1",
     "jest": "^24.9.0"
   }

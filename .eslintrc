@@ -5,9 +5,9 @@
         "jest": true,
         "node": true
     },
-    // "rules": {
-    //     "no-multi-spaces": "error",
-    //     "no-multiple-empty-lines": "error",
-    //     "indent": ["error", 4]
-    // }
+    "rules": {
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": "error",
+        "indent": ["error", 4]
+    }
 }
