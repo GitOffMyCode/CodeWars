@@ -12,16 +12,18 @@ function tickets(peopleInLine) {
     let till = { 25: 0, 50: 0, 100: 0 };
     let result = "YES";
     peopleInLine.forEach(note => {
-        if (note === 50) {
+        if (note === 25) till[25]++;
+        else if (note === 50) {
             if (till[25] === 0) result = "NO"
-            if (till[25 >= 1]) till[25] ++
-            till[50] ++
-        } 
+            else { till[25]--; till[50]++ }
+            if (result === "NO") return result
+        }
+
         // if (note === 100) need to check if (till[25] >= 3) || (till[25] >= 1 && till[50] >= 1)
-        else till[25] ++
+
     });
-    console.log(till)
-    return result
+    console.log(till);
+    return result;
 }
 
 module.exports = tickets;
