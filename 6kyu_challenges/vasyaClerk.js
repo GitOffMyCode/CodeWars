@@ -9,12 +9,16 @@
 // tickets([25, 25, 50, 50, 100]) // => NO. Vasya will not have the right bills to give 75 dollars of change (you can't make two bills of 25 from one of 50)
 
 function tickets(peopleInLine) {
-    let till = [];
+    let till = { 25: 0, 50: 0, 100: 0 };
     let result = "YES";
     peopleInLine.forEach(note => {
         if (note === 50) {
-            if (!till.includes(25)) result = "NO" 
-        } else till.push(note);
+            if (till[25] === 0) result = "NO"
+            if (till[25 >= 1]) till[25] ++
+            till[50] ++
+        } 
+        // if (note === 100) need to check if (till[25] >= 3) || (till[25] >= 1 && till[50] >= 1)
+        else till[25] ++
     });
     console.log(till)
     return result
