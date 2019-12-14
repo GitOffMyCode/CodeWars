@@ -10,34 +10,13 @@
 
 function tickets(peopleInLine) {
     let till = { 25: 0, 50: 0 };
-    let result = "YES";
-    peopleInLine.forEach(note => {
+    for (let note of peopleInLine) {
         if (note === 25) till[25]++;
-        else if (note === 50) {
-            if (till[25] === 0) {
-                result = "NO";
-                return result;
-            }
-            else {
-                till[25]--;
-                till[50]++;
-            }
-        }
-        else {
-            if (till[25] >= 1 && till[50] >= 1) {
-                till[25]--;
-                till[50]--;
-            }
-            else if (till[25] >= 3) {
-                till[25] -= 3;
-            }
-            else {
-                result = "NO";
-                return result;
-            }
-        }
-    });
-    return result;
+        if (note === 50) { till[25]--; till[50]++; }
+        if (note === 100) { till[25]--; till[50] > 0 ? till[50]-- : till[25] -= 2; }
+        if (till[25] < 0) return "NO";
+    }
+    return "YES";
 }
 
 module.exports = tickets;
