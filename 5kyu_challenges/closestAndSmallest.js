@@ -13,7 +13,11 @@
 //   because [13] [14] are closest [9] [3] are their indexes and [85] [176] are the original weights
 
 function closest(string) {
-    // your code
+    let nums = string.split(" ").map(n => n.split("")).map(array => array.map(n => parseInt(n)));
+    let result = nums.map(array => array.reduce((a,b) => a + b))
+    console.log(result)
+    
+
 }
 
 module.exports = closest;
