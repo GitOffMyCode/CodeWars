@@ -29,8 +29,11 @@ function closest(string) {
         const diff = Math.abs(closest[0] - iw[0]);
         sorted.push([diff, iw[0], iw[1], iw[2]])
     });
+    console.log(sorted)
     sorted.sort((a, b) => a[0] - b[0])
     return [sorted[0].splice(1, 4), sorted[1].splice(1, 4)]
 }
+
+console.log(closest("239382 162 254765 182 485944 134 468751 62 49780 108 54")) //-> [ [8, 5, 134], [8, 7, 62] ]
 
 module.exports = closest;
