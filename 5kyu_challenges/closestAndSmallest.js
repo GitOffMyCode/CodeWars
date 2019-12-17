@@ -11,13 +11,26 @@
 //   closest("456899 50 11992 176 272293 163 389128 96 290193 85 52") ==> [[13, 9, 85], [14, 3, 176]]
 //   weights: [ 41, 5, 22, 14, 25, 10, 31, 15, 24, 13, 7 ]
 //   because [13] [14] are closest [9] [3] are their indexes and [85] [176] are the original weights
+// Example:
+//   closest("80 71 62 53") ==> [[8, 0, 80], [8, 1, 71]]
+//   weights: [ 8, 8, 8, 8 ]
+//   difference of weights is 0 for all pairs so select smallest indexes: 80 and 71 and sort by index (80 first)
 
 function closest(string) {
-    let nums = string.split(" ").map(n => n.split("")).map(array => array.map(n => parseInt(n)));
-    let result = nums.map(array => array.reduce((a,b) => a + b))
-    console.log(result)
-    
-
+    const nums = string.split(" ");
+    const weights = nums.map(n => n.split("")).map(arr => arr.map(n => parseInt(n))).map(arr => arr.reduce((a, b) => a + b));
+    const indexedWeights = []
+    for (let num of weights) indexedWeights.push([num, weights.indexOf(num), Number(nums.shift())])
+    indexedWeights.sort((a, b) => a[0] - b[0])
+    let sorted = [];
+    indexedWeights.forEach(iw => {
+        const iWCopy = indexedWeights.filter(item => item !== iw);
+        const closest = iWCopy.reduce((a, b) => Math.abs(b[0] - iw[0]) < Math.abs(a[0] - iw[0]) ? b : a);
+        const diff = Math.abs(closest[0] - iw[0]);
+        sorted.push([diff, iw[0], iw[1], iw[2]])
+    });
+    sorted.sort((a, b) => a[0] - b[0])
+    return [sorted[0].splice(1, 4), sorted[1].splice(1, 4)]
 }
 
 module.exports = closest;
