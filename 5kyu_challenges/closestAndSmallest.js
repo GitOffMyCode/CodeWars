@@ -33,7 +33,6 @@ function closest(string) {
     collected.sort((a, b) => a[0] - b[0])
     const lowestDiff = collected[0][0]
     const result = collected.filter(n => n[0] === lowestDiff)
-    console.log(result)
     result.sort((a, b) => a[1] - b[1])
     return [result[0].splice(1, 4), result[1].splice(1, 4)];
 }
