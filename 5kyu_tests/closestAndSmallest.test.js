@@ -10,6 +10,7 @@ describe("closest", () => {
     test("sorts by index number if weights are equal", () => {
         expect(closest("239382 162 254765 182 485944 134 468751 62 49780 108 54")).toEqual([ [8, 5, 134], [8, 7, 62] ]);
         expect(closest("403749 18 278325 97 304194 119 58359 165 144403 128 38")).toEqual([ [11, 5, 119], [11, 9, 128] ]);
+        expect(closest("123 6 50001")).toEqual([ [6, 0, 123], [6, 1, 6] ]);
     });
 
 });

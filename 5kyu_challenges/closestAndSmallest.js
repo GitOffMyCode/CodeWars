@@ -18,22 +18,33 @@
 
 function closest(string) {
     if (string.length < 1) return [];
+
+    // nums
     const nums = string.split(" ");
-    const weights = nums.map(e => e.split('').reduce((p, a) => Number(p) + Number(a)));
+    let numbers = nums.map(num => num.split(''));
+    numbers = numbers.map(num => num.map(n => Number(n) ));
+    let weights = [];
+    numbers.forEach(num => weights.push(num.reduce((a, b) => a + b )))
+
+    // [weight, index, num]
     const indexedWeights = [];
     let indexCounter = 0;
     for (let w of weights) indexedWeights.push([w, indexCounter++, Number(nums.shift())])
+
+    // [diff, weight, index, num]
     let collected = [];
     indexedWeights.forEach(iw => {
-        const iWCopy = indexedWeights.filter(item => item !== iw);
-        const closest = iWCopy.reduce((a, b) => Math.abs(b[0] - iw[0]) < Math.abs(a[0] - iw[0]) ? b : a);
+        const iwCopy = indexedWeights.filter(item => item !== iw);
+        const closest = iwCopy.reduce((a, b) => Math.abs(b[0] - iw[0]) < Math.abs(a[0] - iw[0]) ? b : a);
         const diff = Math.abs(closest[0] - iw[0]);
         collected.push([diff, iw[0], iw[1], iw[2]]);
     });
+
+    // sort by lowest diff
     collected.sort((a, b) => a[0] - b[0])
     const lowestDiff = collected[0][0]
-    const result = collected.filter(n => n[0] === lowestDiff)
-    result.sort((a, b) => a[1] - b[1])
+    let result = collected.filter(n => n[0] === lowestDiff)
+    result.sort((a, b) => a[1] - b[1] || a[2] - b[2])
     return [result[0].splice(1, 4), result[1].splice(1, 4)];
 }
 
