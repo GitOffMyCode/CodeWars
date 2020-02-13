@@ -7,16 +7,18 @@
 
 const generateHashtag = str => {
   if (/[a-z]/.test(str)) {
-    const arr = str.match(/[a-z]*/g)
+    const arr = str.match(/[a-z]*/gi)
     const words = arr.filter(word => {
       if (word) return word
-    })
+    });
     const result = words.map(word => {
       const firstLetter = word.slice(0,1).toUpperCase();
       const restOfWord = word.slice(1, word.length);
       return firstLetter + restOfWord;
-    })
-    return "#" + result.join("")
+    });
+    const hashtag = "#" + result.join("");
+    if (hashtag.length > 140) return false;
+    return hashtag;
   }
   return false;
 }
