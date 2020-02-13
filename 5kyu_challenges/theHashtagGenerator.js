@@ -6,7 +6,19 @@
 // If the input or the result is an empty string it must return false.
 
 const generateHashtag = str => {
-  
+  if (/[a-z]/.test(str)) {
+    const arr = str.match(/[a-z]*/g)
+    const words = arr.filter(word => {
+      if (word) return word
+    })
+    const result = words.map(word => {
+      const firstLetter = word.slice(0,1).toUpperCase();
+      const restOfWord = word.slice(1, word.length);
+      return firstLetter + restOfWord;
+    })
+    return "#" + result.join("")
+  }
+  return false;
 }
 
 module.exports = generateHashtag;
