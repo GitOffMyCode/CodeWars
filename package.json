@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./6kyu_tests/persistentBugger.test.js"
+    "test": "jest ./5kyu_tests/theHashtagGenerator.test.js"
   },
   "author": "",
   "license": "ISC",
